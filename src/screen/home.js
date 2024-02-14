@@ -13,6 +13,23 @@ const Home = () => {
 
     return (
         <View style={styles.container}>
+            <Text style={styles.title}>Recientemente Agregados</Text>
+
+            <FlatList
+                data={data}
+                keyExtractor={(item) => item.id.toString()}
+                renderItem={({ item }) => (
+                    <View style={styles.pContainer}>
+                        <Image source={item.photos} style={styles.image}  />
+                        <View style={styles.Content}>
+                            <Text style={styles.Name}>{item.name}</Text>
+                        </View>
+                    </View>
+                )}
+                numColumns={3}
+                key={3}
+            />
+
             <TouchableOpacity style={styles.MasButtom} onPress={() => ('#')}>
                 <AntDesign name="plus" size={24} color="white" />
             </TouchableOpacity>
@@ -28,74 +45,6 @@ const styles = StyleSheet.create({
         flex: 1,
         marginTop: 16,
     },
-
-    chatContainer: {
-        flexDirection: 'row',
-        marginRight: 16,
-        marginLeft: 16
-    },
-
-    image: {
-        width: 50,
-        height: 50,
-        backgroundColor: '#128C7E',
-        borderRadius: 25,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-
-    chatContent: {
-        flex: 5,
-        borderBottomWidth: 0,
-        marginLeft: 16,
-        paddingBottom: 22,
-        marginBottom: 15,
-    },
-
-    chatHeader: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: 2,
-        MarginTop: 4
-    },
-
-    chatName: {
-        fontSize: 16,
-        fontWeight: 'bold'
-    },
-
-    chatTime: {
-        fontSize: 12,
-        color: '#A0A09E'
-    },
-
-    messages: {
-        flexDirection: 'row',
-        justifyContent: 'space-between'
-    },
-
-    chatMessage: {
-        fontSize: 14,
-        color: '#A0A09E',
-        width: '90%'
-    },
-
-    unreadContainer: {
-        height: 20,
-        width: 25,
-        borderRadius: 20,
-        backgroundColor: '#25D366',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-
-    totalUnread: {
-        fontSize: 10,
-        color: '#fff',
-        fontWeight: '600'
-    },
-
     MasButtom: {
         position: 'absolute',
         bottom: 30,
@@ -106,5 +55,48 @@ const styles = StyleSheet.create({
         borderRadius: 30,
         justifyContent: 'center',
         alignItems: 'center'
-    }
+    },
+    title: {
+        fontSize: 20,
+        color: 'black',
+        textAlign: 'center',
+        fontWeight: 'bold'
+    },
+
+    pContainer: {
+        marginRight: 10,
+        marginLeft: 10,
+    },
+
+    image: {
+        width: 100,
+        height: 200,
+        marginTop: 5,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+
+    Content: {
+        flexDirection: 'row', 
+        flex:2,
+        borderBottomWidth: 0,
+        marginLeft: 15,
+        paddingBottom: 15,
+        marginBottom: 10,
+        marginTop: 16,
+        width: 100,
+    },
+
+    Header: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 5,
+        marginTop: 0
+    },
+
+    Name: {
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
 });

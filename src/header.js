@@ -32,7 +32,6 @@ const Header = () => {
                             <Fontisto name="search" size={20} color="white" style={styles.icon} />
                         </TouchableOpacity>
                     )}
-                    
                     <MaterialCommunityIcons name='dots-vertical' size={24} color='white' style={styles.icon} />
                 </View>
             </View>
@@ -59,7 +58,7 @@ const styles = StyleSheet.create({
     headerText: {
         fontSize: 20,
         color: 'white',
-        fontWeight: '500'
+        fontWeight: '800'
     },
 
     iconContainer: {
@@ -72,9 +71,9 @@ const styles = StyleSheet.create({
     },
 
     input: {
-        height: 40,
-        borderColor: 'gray',
-        borderWidth: 1,
+        width: 100,
+        height: 30,
+        borderWidth: 0,
         marginRight: 10,
     },
 });
